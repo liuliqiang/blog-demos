@@ -19,7 +19,9 @@ func main() {
 	defer conn.Close()
 
 	cli := helloworld.NewGreeterClient(conn)
-	resp, err := cli.SayHello(context.Background(), &helloworld.HelloRequest{Name: "lucifer"})
+	resp, err := cli.SayHello(context.Background(),
+		&helloworld.HelloRequest{Name: "lucifer"},
+		grpc_retry.WithMax(3),)
 	if err != nil {
 		panic(err)
 	}
