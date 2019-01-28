@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "protobuf";
+package post06;
+
+service Post06 {
+    rpc Sum (stream Request) returns (Response) {}
+}
+
+message Request {
+    int64 num = 1;
+}
+
+message Response {
+    int64 result = 1;
+}
