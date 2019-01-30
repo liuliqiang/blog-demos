@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"io"
 	"log"
 
 	"github.com/liuliqiang/blog-demos/microservices/rpc/grpc/go/post-06/proto-gens"
@@ -17,16 +18,20 @@ func main() {
 	defer conn.Close()
 
 	cli := protobuf.NewPost06Client(conn)
-	sumCli, err := cli.Sum(context.Background())
+	facbCli, err := cli.Facb(context.Background(), &protobuf.FacbRequest{Max: int64(100)})
 	if err != nil {
 		panic(err)
 	}
-	sumCli.Send(&protobuf.SumRequest{Num: int64(1)})
-	sumCli.Send(&protobuf.SumRequest{Num: int64(2)})
-	sumCli.Send(&protobuf.SumRequest{Num: int64(3)})
-	if resp, err := sumCli.CloseAndRecv(); err != nil {
-		panic(err)
-	} else {
-		log.Printf("[D] resp: %s", resp.Result)
+
+	for {
+		if resp, err := facbCli.Recv(); err != nil {
+			if err == io.EOF {
+				return
+			} else {
+				panic(err)
+			}
+		} else {
+			log.Printf("[D] index: %d, facb: %d", resp.Index, resp.Curr)
+		}
 	}
 }

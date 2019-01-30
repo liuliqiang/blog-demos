@@ -3,13 +3,12 @@
 
 package protobuf
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-
 import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
 	context "golang.org/x/net/context"
 	grpc "google.golang.org/grpc"
+	math "math"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -23,85 +22,278 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type Request struct {
+type SumRequest struct {
 	Num                  int64    `protobuf:"varint,1,opt,name=num,proto3" json:"num,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Request) Reset()         { *m = Request{} }
-func (m *Request) String() string { return proto.CompactTextString(m) }
-func (*Request) ProtoMessage()    {}
-func (*Request) Descriptor() ([]byte, []int) {
-	return fileDescriptor_00_04b8672eec995032, []int{0}
-}
-func (m *Request) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Request.Unmarshal(m, b)
-}
-func (m *Request) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Request.Marshal(b, m, deterministic)
-}
-func (dst *Request) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Request.Merge(dst, src)
-}
-func (m *Request) XXX_Size() int {
-	return xxx_messageInfo_Request.Size(m)
-}
-func (m *Request) XXX_DiscardUnknown() {
-	xxx_messageInfo_Request.DiscardUnknown(m)
+func (m *SumRequest) Reset()         { *m = SumRequest{} }
+func (m *SumRequest) String() string { return proto.CompactTextString(m) }
+func (*SumRequest) ProtoMessage()    {}
+func (*SumRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a3e1b8149ead4f6, []int{0}
 }
 
-var xxx_messageInfo_Request proto.InternalMessageInfo
+func (m *SumRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SumRequest.Unmarshal(m, b)
+}
+func (m *SumRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SumRequest.Marshal(b, m, deterministic)
+}
+func (m *SumRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SumRequest.Merge(m, src)
+}
+func (m *SumRequest) XXX_Size() int {
+	return xxx_messageInfo_SumRequest.Size(m)
+}
+func (m *SumRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SumRequest.DiscardUnknown(m)
+}
 
-func (m *Request) GetNum() int64 {
+var xxx_messageInfo_SumRequest proto.InternalMessageInfo
+
+func (m *SumRequest) GetNum() int64 {
 	if m != nil {
 		return m.Num
 	}
 	return 0
 }
 
-type Response struct {
+type SumResponse struct {
 	Result               int64    `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Response) Reset()         { *m = Response{} }
-func (m *Response) String() string { return proto.CompactTextString(m) }
-func (*Response) ProtoMessage()    {}
-func (*Response) Descriptor() ([]byte, []int) {
-	return fileDescriptor_00_04b8672eec995032, []int{1}
-}
-func (m *Response) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Response.Unmarshal(m, b)
-}
-func (m *Response) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Response.Marshal(b, m, deterministic)
-}
-func (dst *Response) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Response.Merge(dst, src)
-}
-func (m *Response) XXX_Size() int {
-	return xxx_messageInfo_Response.Size(m)
-}
-func (m *Response) XXX_DiscardUnknown() {
-	xxx_messageInfo_Response.DiscardUnknown(m)
+func (m *SumResponse) Reset()         { *m = SumResponse{} }
+func (m *SumResponse) String() string { return proto.CompactTextString(m) }
+func (*SumResponse) ProtoMessage()    {}
+func (*SumResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a3e1b8149ead4f6, []int{1}
 }
 
-var xxx_messageInfo_Response proto.InternalMessageInfo
+func (m *SumResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SumResponse.Unmarshal(m, b)
+}
+func (m *SumResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SumResponse.Marshal(b, m, deterministic)
+}
+func (m *SumResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SumResponse.Merge(m, src)
+}
+func (m *SumResponse) XXX_Size() int {
+	return xxx_messageInfo_SumResponse.Size(m)
+}
+func (m *SumResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SumResponse.DiscardUnknown(m)
+}
 
-func (m *Response) GetResult() int64 {
+var xxx_messageInfo_SumResponse proto.InternalMessageInfo
+
+func (m *SumResponse) GetResult() int64 {
 	if m != nil {
 		return m.Result
 	}
 	return 0
 }
 
+type FacbRequest struct {
+	Max                  int64    `protobuf:"varint,1,opt,name=max,proto3" json:"max,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FacbRequest) Reset()         { *m = FacbRequest{} }
+func (m *FacbRequest) String() string { return proto.CompactTextString(m) }
+func (*FacbRequest) ProtoMessage()    {}
+func (*FacbRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a3e1b8149ead4f6, []int{2}
+}
+
+func (m *FacbRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FacbRequest.Unmarshal(m, b)
+}
+func (m *FacbRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FacbRequest.Marshal(b, m, deterministic)
+}
+func (m *FacbRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FacbRequest.Merge(m, src)
+}
+func (m *FacbRequest) XXX_Size() int {
+	return xxx_messageInfo_FacbRequest.Size(m)
+}
+func (m *FacbRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_FacbRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FacbRequest proto.InternalMessageInfo
+
+func (m *FacbRequest) GetMax() int64 {
+	if m != nil {
+		return m.Max
+	}
+	return 0
+}
+
+type FacbResponse struct {
+	Index                int32    `protobuf:"varint,1,opt,name=index,proto3" json:"index,omitempty"`
+	Curr                 int64    `protobuf:"varint,2,opt,name=curr,proto3" json:"curr,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *FacbResponse) Reset()         { *m = FacbResponse{} }
+func (m *FacbResponse) String() string { return proto.CompactTextString(m) }
+func (*FacbResponse) ProtoMessage()    {}
+func (*FacbResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a3e1b8149ead4f6, []int{3}
+}
+
+func (m *FacbResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_FacbResponse.Unmarshal(m, b)
+}
+func (m *FacbResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_FacbResponse.Marshal(b, m, deterministic)
+}
+func (m *FacbResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FacbResponse.Merge(m, src)
+}
+func (m *FacbResponse) XXX_Size() int {
+	return xxx_messageInfo_FacbResponse.Size(m)
+}
+func (m *FacbResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_FacbResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_FacbResponse proto.InternalMessageInfo
+
+func (m *FacbResponse) GetIndex() int32 {
+	if m != nil {
+		return m.Index
+	}
+	return 0
+}
+
+func (m *FacbResponse) GetCurr() int64 {
+	if m != nil {
+		return m.Curr
+	}
+	return 0
+}
+
+type ChatRequest struct {
+	Msg                  string   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ChatRequest) Reset()         { *m = ChatRequest{} }
+func (m *ChatRequest) String() string { return proto.CompactTextString(m) }
+func (*ChatRequest) ProtoMessage()    {}
+func (*ChatRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a3e1b8149ead4f6, []int{4}
+}
+
+func (m *ChatRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChatRequest.Unmarshal(m, b)
+}
+func (m *ChatRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChatRequest.Marshal(b, m, deterministic)
+}
+func (m *ChatRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChatRequest.Merge(m, src)
+}
+func (m *ChatRequest) XXX_Size() int {
+	return xxx_messageInfo_ChatRequest.Size(m)
+}
+func (m *ChatRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChatRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChatRequest proto.InternalMessageInfo
+
+func (m *ChatRequest) GetMsg() string {
+	if m != nil {
+		return m.Msg
+	}
+	return ""
+}
+
+type ChatResponse struct {
+	Reply                string   `protobuf:"bytes,1,opt,name=reply,proto3" json:"reply,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ChatResponse) Reset()         { *m = ChatResponse{} }
+func (m *ChatResponse) String() string { return proto.CompactTextString(m) }
+func (*ChatResponse) ProtoMessage()    {}
+func (*ChatResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_4a3e1b8149ead4f6, []int{5}
+}
+
+func (m *ChatResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ChatResponse.Unmarshal(m, b)
+}
+func (m *ChatResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ChatResponse.Marshal(b, m, deterministic)
+}
+func (m *ChatResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ChatResponse.Merge(m, src)
+}
+func (m *ChatResponse) XXX_Size() int {
+	return xxx_messageInfo_ChatResponse.Size(m)
+}
+func (m *ChatResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ChatResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ChatResponse proto.InternalMessageInfo
+
+func (m *ChatResponse) GetReply() string {
+	if m != nil {
+		return m.Reply
+	}
+	return ""
+}
+
 func init() {
-	proto.RegisterType((*Request)(nil), "post06.Request")
-	proto.RegisterType((*Response)(nil), "post06.Response")
+	proto.RegisterType((*SumRequest)(nil), "post06.SumRequest")
+	proto.RegisterType((*SumResponse)(nil), "post06.SumResponse")
+	proto.RegisterType((*FacbRequest)(nil), "post06.FacbRequest")
+	proto.RegisterType((*FacbResponse)(nil), "post06.FacbResponse")
+	proto.RegisterType((*ChatRequest)(nil), "post06.ChatRequest")
+	proto.RegisterType((*ChatResponse)(nil), "post06.ChatResponse")
+}
+
+func init() { proto.RegisterFile("00.proto", fileDescriptor_4a3e1b8149ead4f6) }
+
+var fileDescriptor_4a3e1b8149ead4f6 = []byte{
+	// 265 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x91, 0xcb, 0x4b, 0xc3, 0x40,
+	0x10, 0xc6, 0x5d, 0x93, 0x86, 0x3a, 0xed, 0x41, 0xc6, 0x22, 0xa5, 0x07, 0x95, 0x45, 0xa1, 0xa7,
+	0xb0, 0x54, 0x7c, 0x9c, 0x15, 0x3c, 0x4b, 0x7a, 0xf3, 0x96, 0xd4, 0xf5, 0x01, 0xdd, 0x24, 0xee,
+	0x03, 0xea, 0xff, 0xe4, 0x1f, 0x29, 0xfb, 0x68, 0x77, 0x73, 0xfb, 0x66, 0xf2, 0x7d, 0xbf, 0xcc,
+	0xcc, 0xc2, 0x98, 0xb1, 0xb2, 0x97, 0x9d, 0xee, 0xb0, 0xe8, 0x3b, 0xa5, 0xd9, 0x3d, 0xbd, 0x00,
+	0x58, 0x1b, 0x51, 0xf1, 0x1f, 0xc3, 0x95, 0xc6, 0x53, 0xc8, 0x5a, 0x23, 0xe6, 0xe4, 0x8a, 0x2c,
+	0xb3, 0xca, 0x4a, 0x7a, 0x03, 0x13, 0xf7, 0x5d, 0xf5, 0x5d, 0xab, 0x38, 0x9e, 0x43, 0x21, 0xb9,
+	0x32, 0x5b, 0x1d, 0x3c, 0xa1, 0xa2, 0x97, 0x30, 0x79, 0xa9, 0x37, 0x4d, 0xc2, 0x11, 0xf5, 0x6e,
+	0xcf, 0x11, 0xf5, 0x8e, 0x3e, 0xc2, 0xd4, 0x1b, 0x02, 0x68, 0x06, 0xa3, 0xef, 0xf6, 0x9d, 0x7b,
+	0xcf, 0xa8, 0xf2, 0x05, 0x22, 0xe4, 0x1b, 0x23, 0xe5, 0xfc, 0xd8, 0x05, 0x9d, 0xb6, 0xe8, 0xe7,
+	0xaf, 0x5a, 0xa7, 0x68, 0xf5, 0xe9, 0x62, 0x27, 0x95, 0x95, 0xf4, 0x1a, 0xa6, 0xde, 0x10, 0xd1,
+	0x92, 0xf7, 0xdb, 0xdf, 0xe0, 0xf1, 0xc5, 0xea, 0x8f, 0x40, 0xf1, 0xea, 0x76, 0xc6, 0x15, 0x64,
+	0x6b, 0x23, 0x10, 0x4b, 0x7f, 0x83, 0x32, 0x1e, 0x60, 0x71, 0x36, 0xe8, 0x79, 0x20, 0x3d, 0x5a,
+	0x12, 0xbc, 0x83, 0xdc, 0xce, 0x8f, 0x07, 0x43, 0xb2, 0xee, 0x62, 0x36, 0x6c, 0xee, 0x63, 0x8c,
+	0xe0, 0x03, 0xe4, 0x76, 0xb6, 0x18, 0x4b, 0x56, 0x89, 0xb1, 0x74, 0x7c, 0xfb, 0x37, 0x46, 0x9e,
+	0xe0, 0x6d, 0xec, 0x1e, 0xaa, 0x31, 0x1f, 0x4d, 0xe1, 0xd4, 0xed, 0x7f, 0x00, 0x00, 0x00, 0xff,
+	0xff, 0xd7, 0x06, 0x95, 0x67, 0xbe, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -117,6 +309,8 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type Post06Client interface {
 	Sum(ctx context.Context, opts ...grpc.CallOption) (Post06_SumClient, error)
+	Facb(ctx context.Context, in *FacbRequest, opts ...grpc.CallOption) (Post06_FacbClient, error)
+	Chat(ctx context.Context, opts ...grpc.CallOption) (Post06_ChatClient, error)
 }
 
 type post06Client struct {
@@ -137,8 +331,8 @@ func (c *post06Client) Sum(ctx context.Context, opts ...grpc.CallOption) (Post06
 }
 
 type Post06_SumClient interface {
-	Send(*Request) error
-	CloseAndRecv() (*Response, error)
+	Send(*SumRequest) error
+	CloseAndRecv() (*SumResponse, error)
 	grpc.ClientStream
 }
 
@@ -146,15 +340,78 @@ type post06SumClient struct {
 	grpc.ClientStream
 }
 
-func (x *post06SumClient) Send(m *Request) error {
+func (x *post06SumClient) Send(m *SumRequest) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *post06SumClient) CloseAndRecv() (*Response, error) {
+func (x *post06SumClient) CloseAndRecv() (*SumResponse, error) {
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
-	m := new(Response)
+	m := new(SumResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *post06Client) Facb(ctx context.Context, in *FacbRequest, opts ...grpc.CallOption) (Post06_FacbClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_Post06_serviceDesc.Streams[1], "/post06.Post06/Facb", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &post06FacbClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type Post06_FacbClient interface {
+	Recv() (*FacbResponse, error)
+	grpc.ClientStream
+}
+
+type post06FacbClient struct {
+	grpc.ClientStream
+}
+
+func (x *post06FacbClient) Recv() (*FacbResponse, error) {
+	m := new(FacbResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *post06Client) Chat(ctx context.Context, opts ...grpc.CallOption) (Post06_ChatClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_Post06_serviceDesc.Streams[2], "/post06.Post06/Chat", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &post06ChatClient{stream}
+	return x, nil
+}
+
+type Post06_ChatClient interface {
+	Send(*ChatRequest) error
+	Recv() (*ChatResponse, error)
+	grpc.ClientStream
+}
+
+type post06ChatClient struct {
+	grpc.ClientStream
+}
+
+func (x *post06ChatClient) Send(m *ChatRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *post06ChatClient) Recv() (*ChatResponse, error) {
+	m := new(ChatResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -164,6 +421,8 @@ func (x *post06SumClient) CloseAndRecv() (*Response, error) {
 // Post06Server is the server API for Post06 service.
 type Post06Server interface {
 	Sum(Post06_SumServer) error
+	Facb(*FacbRequest, Post06_FacbServer) error
+	Chat(Post06_ChatServer) error
 }
 
 func RegisterPost06Server(s *grpc.Server, srv Post06Server) {
@@ -175,8 +434,8 @@ func _Post06_Sum_Handler(srv interface{}, stream grpc.ServerStream) error {
 }
 
 type Post06_SumServer interface {
-	SendAndClose(*Response) error
-	Recv() (*Request, error)
+	SendAndClose(*SumResponse) error
+	Recv() (*SumRequest, error)
 	grpc.ServerStream
 }
 
@@ -184,12 +443,59 @@ type post06SumServer struct {
 	grpc.ServerStream
 }
 
-func (x *post06SumServer) SendAndClose(m *Response) error {
+func (x *post06SumServer) SendAndClose(m *SumResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *post06SumServer) Recv() (*Request, error) {
-	m := new(Request)
+func (x *post06SumServer) Recv() (*SumRequest, error) {
+	m := new(SumRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func _Post06_Facb_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(FacbRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(Post06Server).Facb(m, &post06FacbServer{stream})
+}
+
+type Post06_FacbServer interface {
+	Send(*FacbResponse) error
+	grpc.ServerStream
+}
+
+type post06FacbServer struct {
+	grpc.ServerStream
+}
+
+func (x *post06FacbServer) Send(m *FacbResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _Post06_Chat_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(Post06Server).Chat(&post06ChatServer{stream})
+}
+
+type Post06_ChatServer interface {
+	Send(*ChatResponse) error
+	Recv() (*ChatRequest, error)
+	grpc.ServerStream
+}
+
+type post06ChatServer struct {
+	grpc.ServerStream
+}
+
+func (x *post06ChatServer) Send(m *ChatResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *post06ChatServer) Recv() (*ChatRequest, error) {
+	m := new(ChatRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -206,21 +512,17 @@ var _Post06_serviceDesc = grpc.ServiceDesc{
 			Handler:       _Post06_Sum_Handler,
 			ClientStreams: true,
 		},
+		{
+			StreamName:    "Facb",
+			Handler:       _Post06_Facb_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "Chat",
+			Handler:       _Post06_Chat_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
 	},
 	Metadata: "00.proto",
-}
-
-func init() { proto.RegisterFile("00.proto", fileDescriptor_00_04b8672eec995032) }
-
-var fileDescriptor_00_04b8672eec995032 = []byte{
-	// 141 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x30, 0x30, 0xd0, 0x2b,
-	0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2b, 0xc8, 0x2f, 0x2e, 0x31, 0x30, 0x53, 0x92, 0xe6, 0x62,
-	0x0f, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x11, 0x12, 0xe0, 0x62, 0xce, 0x2b, 0xcd, 0x95, 0x60,
-	0x54, 0x60, 0xd4, 0x60, 0x0e, 0x02, 0x31, 0x95, 0x94, 0xb8, 0x38, 0x82, 0x52, 0x8b, 0x0b, 0xf2,
-	0xf3, 0x8a, 0x53, 0x85, 0xc4, 0xb8, 0xd8, 0x8a, 0x52, 0x8b, 0x4b, 0x73, 0x4a, 0xa0, 0x0a, 0xa0,
-	0x3c, 0x23, 0x33, 0x2e, 0xb6, 0x00, 0xb0, 0x51, 0x42, 0x3a, 0x5c, 0xcc, 0xc1, 0xa5, 0xb9, 0x42,
-	0xfc, 0x7a, 0x10, 0xa3, 0xf5, 0xa0, 0xe6, 0x4a, 0x09, 0x20, 0x04, 0x20, 0x66, 0x29, 0x31, 0x68,
-	0x30, 0x3a, 0x71, 0x45, 0x71, 0x80, 0x5d, 0x92, 0x54, 0x9a, 0x96, 0xc4, 0x06, 0x66, 0x19, 0x03,
-	0x02, 0x00, 0x00, 0xff, 0xff, 0x8a, 0x50, 0x47, 0xd1, 0x9f, 0x00, 0x00, 0x00,
 }
