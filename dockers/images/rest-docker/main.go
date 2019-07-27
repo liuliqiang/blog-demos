@@ -28,7 +28,7 @@ func main() {
 	flag.Parse()
 
 	http.HandleFunc("/", func(resp http.ResponseWriter, req *http.Request) {
-		if _, err := resp.Write([]byte(fmt.Sprintf("Hello, it's %s", ServerName))); err != nil {
+		if _, err := resp.Write([]byte(fmt.Sprintf("Hello, Version 3 here. It's %s", ServerName))); err != nil {
 			resp.WriteHeader(http.StatusInternalServerError)
 			log.Printf("Failed to resp: %v", err)
 			return
