@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tcp-grpc-demo-server-gateway
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - tcp-grpc-demo-server-gateway
+  tcp:
+  - match:
+    - port: 10900
+    route:
+    - destination:
+        host: grpc-demo-server.default.svc.cluster.local
+        port:
+          number: 9321

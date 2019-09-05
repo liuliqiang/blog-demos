@@ -1,0 +1,15 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tcp-grpc-demo-server-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 10900
+        name: tcp
+        protocol: TCP
+      hosts:
+      - "*"

@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tls-grpc-demo-server-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 10901
+        name: tcp
+        protocol: TLS
+      tls:
+        mode: SIMPLE
+        credentialName: "httpbin-credential"
+      hosts:
+      - "*"
