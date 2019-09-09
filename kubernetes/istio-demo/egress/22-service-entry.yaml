@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: external-grpc-service-entry-20
+spec:
+  hosts:
+  - grpc-egress-http.default.svc.cluster.local
+  ports:
+  - number: 80
+    name: http
+    protocol: HTTP2
+  resolution: STATIC
+  location: MESH_EXTERNAL
+  endpoints:
+    - address: 35.239.42.83
+      ports:
+        http: 80

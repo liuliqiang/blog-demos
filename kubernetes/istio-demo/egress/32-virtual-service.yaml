@@ -1,0 +1,17 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: external-service-34
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - grpc-egressgateway-32
+  http:
+    - route:
+        - destination:
+            host: grpc-egress-http
+            port:
+              number: 80
+          weight: 100

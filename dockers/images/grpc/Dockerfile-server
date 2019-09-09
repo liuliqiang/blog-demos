@@ -9,6 +9,7 @@ RUN CGO_ENABLED=0 GOOS=linux make build
 FROM alpine:3.10.0
 
 COPY --from=0 /go/src/github.com/liuliqiang/grpc-demo/grpc-server /bin/server
+COPY ./90-tls/httpbin.example.com/3_application /go/src/github.com/liuliqiang/grpc-demo/90-tls/httpbin.example.com/3_application
 
 USER nobody
 EXPOSE 9321

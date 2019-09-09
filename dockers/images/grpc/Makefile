@@ -7,4 +7,4 @@ build:
 	go build -o grpc-server server/main.go
 
 server-docker:
-	docker build -t lukelau/grpc-server:1.0 . -f Dockerfile-server
+	docker build -t lukelau/grpc-server:1.1 . -f Dockerfile-server

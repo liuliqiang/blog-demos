@@ -1,0 +1,16 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: external-grpc-svc
+spec:
+  hosts:
+    - my-company-proxy.com # ignored
+  addresses:
+    - 35.239.42.83/32
+  ports:
+    - number: 80
+      name: tcp
+      protocol: TCP
+  location: MESH_EXTERNAL
+  resolution: NONE

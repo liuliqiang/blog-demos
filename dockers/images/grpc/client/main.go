@@ -20,8 +20,8 @@ func main() {
 	}
 
 	// Create a connection with the TLS credentials
-	conn, err := grpc.Dial("httpbin.example.com:10901", grpc.WithTransportCredentials(creds))
-	// conn, err := grpc.Dial("35.239.55.169:10900", grpc.WithInsecure())
+	conn, err := grpc.Dial("httpbin.example.com:443", grpc.WithTransportCredentials(creds))
+	// conn, err := grpc.Dial("35.239.42.83:80", grpc.WithInsecure())
 	if err != nil {
 		panic(err)
 	}

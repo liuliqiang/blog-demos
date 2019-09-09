@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: grpc-external-gateway-11
+spec:
+  hosts:
+  - '*'
+  gateways:
+  - grpc-external-gateway-11
+  http:
+  - match:
+    - port: 80
+    route:
+    - destination:
+        host: grpc-egress-http
+        port:
+          number: 80
