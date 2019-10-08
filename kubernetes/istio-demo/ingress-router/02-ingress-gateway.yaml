@@ -1,0 +1,30 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: no-inject-ns1-ingress-router
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 31400
+        name: tcp
+        protocol: TCP
+      hosts:
+        - "liuliqiang.ns1.*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: no-inject-ns2-ingress-router
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 31400
+        name: tcp
+        protocol: TCP
+      hosts:
+        - "liuliqiang.ns2.*"

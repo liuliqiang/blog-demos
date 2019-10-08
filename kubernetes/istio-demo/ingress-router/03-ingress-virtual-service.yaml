@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: no-inject-ns1-ingress-router
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - no-inject-ns1-ingress-router
+  tcp:
+  - match:
+    - port: 31400
+    route:
+    - destination:
+        host: mongo.backup.svc.cluster.local
+        port:
+          number: 8080
