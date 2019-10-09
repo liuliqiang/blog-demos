@@ -2,7 +2,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: liqiang-io-gateway
+  name: liqiang-io-ingress-gateway
 spec:
   selector:
     istio: ingressgateway
@@ -12,4 +12,6 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "*"
+      - "liqiangio.istio-system"
+      - "liqiangio.istio-system.svc"
+      - "liqiangio.istio-system.svc.default.local"

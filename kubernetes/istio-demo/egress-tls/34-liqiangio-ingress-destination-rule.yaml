@@ -2,8 +2,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: liqiang-io
-  namespace: istio-system
+  name: originate-tls-for-liqiang-io
 spec:
   host: liqiang.io
   trafficPolicy:
@@ -13,4 +12,4 @@ spec:
       - port:
           number: 443
         tls:
-          mode: SIMPLE # initiates HTTPS when accessing edition.cnn.com
+          mode: SIMPLE

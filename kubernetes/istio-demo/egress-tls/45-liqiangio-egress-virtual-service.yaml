@@ -1,0 +1,34 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: liqiangio-through-egress-gateway
+spec:
+  hosts:
+  - liqiang.io
+  - liqiangio.istio-system
+  - liqiangio.istio-system.svc
+  - liqiangio.istio-system.svc.default.local
+  gateways:
+  - istio-egressgateway
+  - mesh
+  http:
+  - match:
+    - gateways:
+      - mesh
+      port: 80
+    route:
+    - destination:
+        host: istio-egressgateway.istio-system.svc.cluster.local
+        port:
+          number: 80
+      weight: 100
+  - match:
+    - gateways:
+      - istio-egressgateway
+      port: 80
+    route:
+    - destination:
+        host: liqiang.io
+        port:
+          number: 443
+      weight: 100
