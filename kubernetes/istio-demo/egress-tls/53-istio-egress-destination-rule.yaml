@@ -1,0 +1,15 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+    name: originate-tls-for-liqiang-io
+spec:
+  host: liqiang.io
+  trafficPolicy:
+    loadBalancer:
+        simple: ROUND_ROBIN
+    portLevelSettings:
+    - port:
+        number: 443
+      tls:
+        mode: SIMPLE

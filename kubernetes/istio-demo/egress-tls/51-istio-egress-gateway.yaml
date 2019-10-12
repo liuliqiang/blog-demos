@@ -1,0 +1,18 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: istio-egressgateway
+spec:
+  selector:
+    istio: egressgateway
+  servers:
+    - port:
+        number: 80
+        name: http-port-for-tls-liqiang-io
+        protocol: HTTP
+      hosts:
+        - liqiang.io
+        - liqiangio.istio-system
+        - liqiangio.istio-system.svc
+        - liqiangio.istio-system.svc.default.local
