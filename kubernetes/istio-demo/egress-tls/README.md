@@ -68,7 +68,8 @@
     - 20-egress-gateway.yaml：在 service mesh 中添加一个 egress 的监听
     - 21-virtual-service.yaml：定义了如何路由 liqiang.io 的流量，这里转了两层
     - 22-destination-rule.yaml：定义了如何和真正的 liqiang.io 连接，这里使用的是 SIMPLE 的 TLS 认证
-
+    - 23-service-entry.yaml：这个文件我不知道怎么解释。。
+    
 ### 4. 通过 ingress 访问外部服务
 
 #### 文件配置

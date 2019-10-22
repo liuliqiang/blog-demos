@@ -4,10 +4,10 @@ metadata:
   name: liqiangio-through-egress-gateway
 spec:
   hosts:
-  - liqiang.io
-  - liqiangio.istio-system
-  - liqiangio.istio-system.svc
-  - liqiangio.istio-system.svc.default.local
+  - istio.io
+  - istio.istio-system
+  - istio.istio-system.svc
+  - istio.istio-system.svc.default.local
   gateways:
   - istio-egressgateway
   - mesh
@@ -19,6 +19,7 @@ spec:
     route:
     - destination:
         host: istio-egressgateway.istio-system.svc.cluster.local
+        subset: cnn
         port:
           number: 80
       weight: 100
@@ -28,10 +29,10 @@ spec:
       port: 80
     route:
     - destination:
-        host: liqiang.io
+        host: istio.io
         port:
           number: 443
       headers:
         request:
           set:
-            Host: liqiang.io
+            Host: istio.io

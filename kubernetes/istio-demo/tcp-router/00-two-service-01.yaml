@@ -2,20 +2,20 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: http-echo-server
+    app: http-echo-server-v1
     version: v1
-  name: http-echo-server
+  name: http-echo-server-v1
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: http-echo-server
+      app: http-echo-server-v1
       version: v1
   template:
     metadata:
       labels:
-        app: http-echo-server
+        app: http-echo-server-v1
         version: v1
     spec:
       containers:
@@ -34,14 +34,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grpc-demo-server
+  name: svc1
   labels:
-    app: grpc-demo-server
+    app: http-echo-server-v1
 spec:
   ports:
-    - name: grpc
-      port: 1111
+    - name: tcp
+      port: 2222
       targetPort: 8080
   selector:
-    app: http-echo-server
+    app: http-echo-server-v1
     version: v1

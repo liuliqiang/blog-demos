@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: liqiangio
+  name: istio
   namespace: istio-system
 spec:
   ports:

@@ -2,9 +2,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-    name: originate-tls-for-liqiang-io
+    name: originate-tls-for-istio-io
 spec:
-  host: liqiang.io
+  host: istio.io
   trafficPolicy:
     loadBalancer:
         simple: ROUND_ROBIN

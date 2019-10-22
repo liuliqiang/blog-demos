@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 
 	helloworld "github.com/liuliqiang/grpc-demo/proto"
 
@@ -13,15 +14,27 @@ import (
 var cert = "/go/src/github.com/liuliqiang/grpc-demo/90-tls/httpbin.example.com/2_intermediate/certs/ca-chain.cert.pem"
 
 func main() {
-	// Create the client TLS credentials
-	creds, err := credentials.NewClientTLSFromFile(cert, "")
-	if err != nil {
-		panic(err)
-	}
+	addr := "localhost:80"
+	security := false
+	flag.StringVar(&addr, "addr", addr, "addr")
+	flag.BoolVar(&security, "security", security, "security")
+	flag.Parse()
 
-	// Create a connection with the TLS credentials
-	conn, err := grpc.Dial("httpbin.example.com:443", grpc.WithTransportCredentials(creds))
-	// conn, err := grpc.Dial("35.239.42.83:80", grpc.WithInsecure())
+	var err error
+	var conn *grpc.ClientConn
+
+	if security {
+		// Create the client TLS credentials
+		creds, err := credentials.NewClientTLSFromFile(cert, "")
+		if err != nil {
+			panic(err)
+		}
+
+		// Create a connection with the TLS credentials
+		conn, err = grpc.Dial(addr, grpc.WithTransportCredentials(creds))
+	} else {
+		conn, err = grpc.Dial(addr, grpc.WithInsecure())
+	}
 	if err != nil {
 		panic(err)
 	}

@@ -9,10 +9,19 @@ spec:
   servers:
     - port:
         number: 80
-        name: http-port-for-tls-liqiang-io
+        name: http-port-for-tls-istio
         protocol: HTTP
       hosts:
-        - liqiang.io
-        - liqiangio.istio-system
-        - liqiangio.istio-system.svc
-        - liqiangio.istio-system.svc.default.local
+        - istio.io
+        - istio.istio-system
+        - istio.istio-system.svc
+        - istio.istio-system.svc.default.local
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: egressgateway-for-istio
+spec:
+  host: istio-egressgateway.istio-system.svc.cluster.local
+  subsets:
+    - name: cnn

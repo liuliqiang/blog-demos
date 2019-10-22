@@ -1,0 +1,32 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: g3333
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 3333
+        name: tcp-3333
+        protocol: TCP
+      hosts:
+      - "svc00.istio-system.svc.cluster.local"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: g4444
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 4444
+        name: tcp-4444
+        protocol: TCP
+      hosts:
+      - "svc01.istio-system.svc.cluster.local"

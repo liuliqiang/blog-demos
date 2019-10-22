@@ -4,10 +4,8 @@ kind: DestinationRule
 metadata:
     name: originate-tls-for-liqiang-io
 spec:
-  host: liqiang.io
+  host: istio.io
   trafficPolicy:
-    loadBalancer:
-        simple: ROUND_ROBIN
     portLevelSettings:
     - port:
         number: 443
