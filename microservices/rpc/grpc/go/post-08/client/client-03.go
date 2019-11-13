@@ -22,7 +22,7 @@ func main() {
 		panic(err)
 	}
 
-	// Create a certificate pool from the certificate authority
+	// CreateServiceMonitor a certificate pool from the certificate authority
 	certPool := x509.NewCertPool()
 	ca, err := ioutil.ReadFile(caFile)
 	if err != nil {

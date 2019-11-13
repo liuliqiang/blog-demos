@@ -24,13 +24,13 @@ func main() {
 	var conn *grpc.ClientConn
 
 	if security {
-		// Create the client TLS credentials
+		// CreateServiceMonitor the client TLS credentials
 		creds, err := credentials.NewClientTLSFromFile(cert, "")
 		if err != nil {
 			panic(err)
 		}
 
-		// Create a connection with the TLS credentials
+		// CreateServiceMonitor a connection with the TLS credentials
 		conn, err = grpc.Dial(addr, grpc.WithTransportCredentials(creds))
 	} else {
 		conn, err = grpc.Dial(addr, grpc.WithInsecure())

@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	// Create the client TLS credentials
+	// CreateServiceMonitor the client TLS credentials
 	cert := "/tmp/server.crt"
 	creds, err := credentials.NewClientTLSFromFile(cert, "local.liqiang.io")
 	if err != nil {

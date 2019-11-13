@@ -25,7 +25,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
-	// Create the TLS credentials
+	// CreateServiceMonitor the TLS credentials
 	crt := "/tmp/server.crt"
 	key := "/tmp/server.key"
 	creds, err := credentials.NewServerTLSFromFile(crt, key)

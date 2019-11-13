@@ -28,12 +28,12 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
-	// Create the TLS credentials
+	// CreateServiceMonitor the TLS credentials
 	caFile := "/tmp/client.crt"
 	crt := "/tmp/server.crt"
 	key := "/tmp/server.key"
 
-	// Create a certificate pool from the certificate authority
+	// CreateServiceMonitor a certificate pool from the certificate authority
 	certPool := x509.NewCertPool()
 	ca, err := ioutil.ReadFile(caFile)
 	if err != nil {
@@ -47,7 +47,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	// Create the TLS credentials
+	// CreateServiceMonitor the TLS credentials
 	creds := credentials.NewTLS(&tls.Config{
 		ClientAuth:   tls.RequireAndVerifyClientCert,
 		Certificates: []tls.Certificate{certificate},
