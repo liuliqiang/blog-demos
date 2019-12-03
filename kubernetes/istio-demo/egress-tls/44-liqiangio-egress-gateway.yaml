@@ -9,10 +9,10 @@ spec:
   servers:
   - port:
       number: 80
-      name: http-port-for-tls-liqiang-io
+      name: http-port-for-tls-liqiang.io-io
       protocol: HTTP
     hosts:
-    - liqiang.io
+    - liqiang.io.io
     - liqiangio.istio-system
     - liqiangio.istio-system.svc
     - liqiangio.istio-system.svc.default.local

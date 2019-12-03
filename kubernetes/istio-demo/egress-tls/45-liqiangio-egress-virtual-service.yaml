@@ -4,7 +4,7 @@ metadata:
   name: liqiangio-through-egress-gateway
 spec:
   hosts:
-  - liqiang.io
+  - liqiang.io.io
   - liqiangio.istio-system
   - liqiangio.istio-system.svc
   - liqiangio.istio-system.svc.default.local
@@ -28,7 +28,7 @@ spec:
       port: 80
     route:
     - destination:
-        host: liqiang.io
+        host: liqiang.io.io
         port:
           number: 443
       weight: 100

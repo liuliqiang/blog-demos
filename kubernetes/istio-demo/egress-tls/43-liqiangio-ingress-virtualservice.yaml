@@ -2,14 +2,14 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: liqiang-io-ingress-virtual-service
+  name: liqiang.io-io-ingress-virtual-service
 spec:
   hosts:
   - "liqiangio.istio-system"
   - "liqiangio.istio-system.svc"
   - "liqiangio.istio-system.svc.default.local"
   gateways:
-  - liqiang-io-ingress-gateway
+  - liqiang.io-io-ingress-gateway
   http:
     - match:
       - port: 80
@@ -21,5 +21,5 @@ spec:
       headers:
         request:
           set:
-            Host: liqiang.io
+            Host: liqiang.io.io
 

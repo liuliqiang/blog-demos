@@ -12,12 +12,12 @@ import (
 func main() {
 	// CreateServiceMonitor the client TLS credentials
 	cert := "/tmp/server.crt"
-	creds, err := credentials.NewClientTLSFromFile(cert, "local.liqiang.io")
+	creds, err := credentials.NewClientTLSFromFile(cert, "local.liqiang.io.io")
 	if err != nil {
 		panic(err)
 	}
 
-	conn, err := grpc.Dial("local.liqiang.io:8080", grpc.WithTransportCredentials(creds))
+	conn, err := grpc.Dial("local.liqiang.io.io:8080", grpc.WithTransportCredentials(creds))
 	if err != nil {
 		panic(err)
 	}

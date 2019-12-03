@@ -35,12 +35,12 @@ func main() {
 	}
 
 	creds := credentials.NewTLS(&tls.Config{
-		ServerName:   "local.liqiang.io",
+		ServerName:   "local.liqiang.io.io",
 		Certificates: []tls.Certificate{certificate},
 		RootCAs:      certPool,
 	})
 
-	conn, err := grpc.Dial("local.liqiang.io:8080", grpc.WithTransportCredentials(creds))
+	conn, err := grpc.Dial("local.liqiang.io.io:8080", grpc.WithTransportCredentials(creds))
 	if err != nil {
 		panic(err)
 	}

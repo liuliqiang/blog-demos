@@ -7,8 +7,8 @@ import (
 	"log"
 	"net"
 
+	"github.com/grpc/grpc-go/examples/helloworld/helloworld"
 	"github.com/liuliqiang/blog-demos/microservices/rpc/grpc/go/post-05/interceptor"
-	"github.com/liuliqiang/blog-demos/microservices/rpc/grpc/go/proto-gens"
 
 	"google.golang.org/grpc"
 )
@@ -37,6 +37,6 @@ type helloLiqiangIO struct {
 
 func (*helloLiqiangIO) SayHello(ctx context.Context, req *helloworld.HelloRequest) (*helloworld.HelloReply, error) {
 	return &helloworld.HelloReply{
-		Message: fmt.Sprintf("Hello: %s, Welcome to https://liqiang.io", req.Name),
+		Message: fmt.Sprintf("Hello: %s, Welcome to https://liqiang.io.io", req.Name),
 	}, nil
 }

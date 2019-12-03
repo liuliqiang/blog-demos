@@ -2,9 +2,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: liqiang-io
+  name: liqiang.io-io
 spec:
-  host: liqiang.io
+  host: liqiang.io.io
   trafficPolicy:
     loadBalancer:
       simple: ROUND_ROBIN

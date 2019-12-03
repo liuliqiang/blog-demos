@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: busybox-pod-file
-  namespace: liqiang-io
+  namespace: liqiang.io-io
 spec:
   containers:
     - image: busybox

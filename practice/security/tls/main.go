@@ -110,10 +110,10 @@ func main() {
 			Locality:           []string{"Shenzhn"},
 			Province:           []string{"GuangDong"},
 			OrganizationalUnit: []string{""},
-			Organization:       []string{"liqiang.io"},
+			Organization:       []string{"liqiang.io.io"},
 			StreetAddress:      []string{"", "", ""},
 			PostalCode:         []string{"510003"},
-			CommonName:         "local.liqiang.io",
+			CommonName:         "local.liqiang.io.io",
 		},
 	}
 	template.SubjectKeyId = priKeyHash(priKey)
@@ -152,10 +152,10 @@ func main() {
 			Locality:           []string{"Shenzhn"},
 			Province:           []string{"GuangDong"},
 			OrganizationalUnit: []string{""},
-			Organization:       []string{"liqiang.io"},
+			Organization:       []string{"liqiang.io.io"},
 			StreetAddress:      []string{"", "", ""},
 			PostalCode:         []string{"510003"},
-			CommonName:         "local.liqiang.io",
+			CommonName:         "local.liqiang.io.io",
 		},
 	}
 	bobTemplate.SubjectKeyId = priKeyHash(bobPriKey)

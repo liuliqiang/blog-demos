@@ -10,9 +10,9 @@ import (
 	"github.com/grpc-ecosystem/go-grpc-middleware"
 
 	"github.com/liuliqiang/blog-demos/microservices/rpc/grpc/go/post-05/interceptor"
-	"github.com/liuliqiang/blog-demos/microservices/rpc/grpc/go/proto-gens"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/examples/helloworld/helloworld"
 )
 
 var (
@@ -44,6 +44,6 @@ type helloLiqiangIO struct {
 
 func (*helloLiqiangIO) SayHello(ctx context.Context, req *helloworld.HelloRequest) (*helloworld.HelloReply, error) {
 	return &helloworld.HelloReply{
-		Message: fmt.Sprintf("Hello: %s, Welcome to https://liqiang.io", req.Name),
+		Message: fmt.Sprintf("Hello: %s, Welcome to https://liqiang.io.io", req.Name),
 	}, nil
 }
